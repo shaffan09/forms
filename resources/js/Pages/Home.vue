@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold">Hello</h1>
-
-  <button></button>
+  <h1 class="">Home</h1>
 </template>
 
 <style scoped>
