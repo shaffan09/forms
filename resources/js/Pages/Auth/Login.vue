@@ -8,7 +8,7 @@ export default {
 
 <script setup lang="ts">
 import InputField from "@/Shared/InputField.vue";
-import {useForm} from "@inertiajs/vue3";
+import {useForm, Head} from "@inertiajs/vue3";
 
 const {errors} = defineProps<{
   errors: {
@@ -27,6 +27,10 @@ function submit() {
 </script>
 
 <template>
+  <Head>
+    <title>Login</title>
+  </Head>
+
   <div class="sm:w-1/2 lg:w-1/3 mx-auto">
     <div class="p-4 shadow-lg rounded-lg">
       <form @submit.prevent="submit" action="/" method="POST">

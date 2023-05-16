@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import {Link} from "@inertiajs/vue3";
-
-const {user} = defineProps<{
-  user: {name: string}
-}>()
 </script>
 
 <template>
@@ -45,13 +41,7 @@ const {user} = defineProps<{
   </nav>
 
   <main class="p-7">
-    <section>
-      <span class="text-3xl text-primary font-bold">Welcome Back {{user.name}}</span>
-    </section>
-
-    <section class="mt-4">
       <slot></slot>
-    </section>
   </main>
 </template>
 
