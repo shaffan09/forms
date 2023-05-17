@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {Link} from "@inertiajs/vue3";
+import ArrowRightOnRectagle from "@/Shared/Icons/ArrowRightOnRectagle.vue";
 </script>
 
 <template>
@@ -15,7 +16,7 @@ import {Link} from "@inertiajs/vue3";
           </label>
           <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/forms">Forms</Link>
             </li>
             <li>
               <Link>Dashboard</Link>
@@ -30,7 +31,7 @@ import {Link} from "@inertiajs/vue3";
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/forms">Forms</Link>
           </li>
           <li>
             <Link>Dashboard</Link>
@@ -41,13 +42,16 @@ import {Link} from "@inertiajs/vue3";
         </ul>
       </div>
       <div class="navbar-end">
-        <Link href="/logout" method="POST" class="btn btn-primary" as="button">Logout</Link>
+        <Link href="/logout" method="POST" class="btn btn-primary gap-2" as="button">
+          <ArrowRightOnRectagle/>
+          Logout
+        </Link>
       </div>
     </div>
   </nav>
 
   <main class="p-7">
-      <slot></slot>
+    <slot></slot>
   </main>
 </template>
 

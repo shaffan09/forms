@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Home page
+Route::get('/', function () {
+   return redirect('/forms');
+});
 
 //Auth routes
 
@@ -37,7 +43,7 @@ Route::post('/logout', [LoginController::class, 'destroy']);
 
 //Protected routes
 Route::middleware('auth')->group(function () {
-    Route::get('/', [FormController::class, 'index']);
+    Route::get('/forms', [FormController::class, 'index']);
 
     // show create form page
     Route::get('/forms/create', [FormController::class, 'create']);

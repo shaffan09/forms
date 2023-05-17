@@ -10,9 +10,14 @@ use Inertia\Response;
 class FormController extends Controller
 {
     // show home page with user forms paginated
-    public function index()
+    public function index(): Response
     {
-        return Inertia::render('Home');
+        return Inertia::render('Form/Index', [
+            'forms' => Form::query()
+                ->where('user_id', auth()->user()->id)
+                ->orderByDesc('created_at')
+                ->paginate(6),
+        ]);
     }
 
     //show create form page
@@ -37,6 +42,6 @@ class FormController extends Controller
         $form = new Form($formData);
         $form->user()->associate(auth()->user())->save();
 
-        return redirect('/');
+        return redirect('/forms');
     }
 }
