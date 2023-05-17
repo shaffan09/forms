@@ -15,27 +15,33 @@ import {Link} from "@inertiajs/vue3";
           </label>
           <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <Link>Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
               <Link>Dashboard</Link>
             </li>
+            <li>
+              <Link href="/forms/create">Create Form</Link>
+            </li>
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl text-primary">Forms</a>
+        <Link href="/" class="btn btn-ghost normal-case text-xl text-primary">Forms</Link>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
           <li>
-            <Link>Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
             <Link>Dashboard</Link>
           </li>
+          <li>
+            <Link href="/forms/create">Create Form</Link>
+          </li>
         </ul>
       </div>
       <div class="navbar-end">
-        <Link href="/logout" method="POST" class="btn btn-primary">Logout</Link>
+        <Link href="/logout" method="POST" class="btn btn-primary" as="button">Logout</Link>
       </div>
     </div>
   </nav>

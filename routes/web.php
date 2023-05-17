@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,11 @@ Route::post('/logout', [LoginController::class, 'destroy']);
 
 //Protected routes
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return inertia('Home');
-    });
+    Route::get('/', [FormController::class, 'index']);
+
+    // show create form page
+    Route::get('/forms/create', [FormController::class, 'create']);
+
+    // store form
+    Route::post('/forms/create', [FormController::class, 'store']);
 });
