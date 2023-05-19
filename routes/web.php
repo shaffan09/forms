@@ -63,4 +63,10 @@ Route::middleware('auth')->group(function () {
         '/forms/{form}/edit',
         [FormController::class, 'update']
     )->can('update', 'form');
+
+    // route to delete the form
+    Route::delete(
+        '/forms/{form}',
+        [FormController::class, 'destroy'],
+    )->can('delete', 'form');
 });

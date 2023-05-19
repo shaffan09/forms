@@ -91,10 +91,13 @@ function toggleDelete() {
           </button>
 
           <div class="btn-group" v-show="isDeleting">
-            <button
+            <Link
+              :href="`/forms/${id}`"
+              method="DELETE"
+              as="button"
               class="btn btn-sm btn-outline btn-error">
               <Check/>
-            </button>
+            </Link>
 
             <button
               @click="isDeleting = !isDeleting"

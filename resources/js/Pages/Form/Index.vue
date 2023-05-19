@@ -3,6 +3,7 @@ import {Head} from "@inertiajs/vue3";
 import {Form} from "@/types";
 import AdminCard from "@/Shared/Form/AdminCard.vue";
 import Pagination from "@/Shared/Pagination.vue";
+import XMark from "@/Shared/Icons/XMark.vue";
 
 const {user, forms} = defineProps<{
   user: { name: string }
@@ -40,7 +41,8 @@ const {user, forms} = defineProps<{
       <template #title>
         {{ form.title.length > 30 ? `${form.title.substring(0, 30)}...` : form.title }}
       </template>
-      <template #description>
+
+      <template v-if="form.description" #description>
         {{ form.description.length > 60 ? `${form.description.substring(0, 60)}...` : form.description }}
       </template>
     </AdminCard>

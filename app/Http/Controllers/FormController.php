@@ -53,6 +53,7 @@ class FormController extends Controller
         ]);
     }
 
+    //update the form in the database
     public function update(Request $request, Form $form)
     {
         $formData = $request->validate([
@@ -64,6 +65,14 @@ class FormController extends Controller
         ]);
 
         $form->update($formData);
+
+        return redirect('/forms');
+    }
+
+    //delete the form from the database
+    public function destroy(Form $form)
+    {
+        $form->delete();
 
         return redirect('/forms');
     }
