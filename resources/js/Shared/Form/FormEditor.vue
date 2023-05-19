@@ -69,7 +69,9 @@ function submit() {
     })
   })
 
-  formData.post('/forms/create')
+  if (form === null) formData.post('/forms/create')
+
+  if (form !== null) formData.post(`/forms/${form.id}/edit`)
 }
 </script>
 
@@ -120,7 +122,12 @@ function submit() {
         <InputField>
           <template #name>Active</template>
           <template #input>
-            <input v-model="formData.is_active" name="is_active" type="checkbox" class="checkbox"/>
+            <input
+              v-model="formData.is_active"
+              name="is_active"
+              type="checkbox"
+              class="checkbox"
+            />
           </template>
         </InputField>
       </div>
@@ -139,7 +146,7 @@ function submit() {
           v-show="!formData.processing"
           @click="submit"
           class="btn btn-primary">
-          {{ form ? 'Save' : 'Create' }}
+          {{ form ? 'Update' : 'Create' }}
         </button>
         <button
           v-show="formData.processing"

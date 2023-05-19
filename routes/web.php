@@ -3,8 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FormController;
+use App\Models\Form;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use Inertia\Inertia;
 
 // Home page
 Route::get('/', function () {
-   return redirect('/forms');
+    return redirect('/forms');
 });
 
 //Auth routes
@@ -50,4 +51,16 @@ Route::middleware('auth')->group(function () {
 
     // store form
     Route::post('/forms/create', [FormController::class, 'store']);
+
+    // show edit form page
+    Route::get(
+        '/forms/{form}/edit',
+        [FormController::class, 'edit']
+    )->can('update', 'form');
+
+    // route to update form
+    Route::post(
+        '/forms/{form}/edit',
+        [FormController::class, 'update']
+    )->can('update', 'form');
 });

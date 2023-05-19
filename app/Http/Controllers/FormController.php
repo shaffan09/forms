@@ -37,10 +37,33 @@ class FormController extends Controller
             'fields' => ['required'],
         ]);
 
-//        $formData['fields'] = json_encode($formData['fields']);
-
         $form = new Form($formData);
         $form->user()->associate(auth()->user())->save();
+
+        return redirect('/forms');
+    }
+
+    //show edit form screen
+    public function edit(Form $form): Response
+    {
+        $form['is_active'] =  (bool)$form['is_active'];
+
+        return Inertia::render('Form/Edit', [
+            'form' => $form,
+        ]);
+    }
+
+    public function update(Request $request, Form $form)
+    {
+        $formData = $request->validate([
+            'title' => ['required'],
+            'description' => [],
+            'is_active' => ['required'],
+            'exp_date' => [],
+            'fields' => ['required'],
+        ]);
+
+        $form->update($formData);
 
         return redirect('/forms');
     }

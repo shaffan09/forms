@@ -98,7 +98,8 @@ emitChanges()
               @input="onNameInput(field)"
               v-model="field.name"
               type="text"
-              class="input input-bordered w-full"/>
+              class="input input-bordered w-full"
+            />
           </template>
           <template #error>
             {{ field.error ? 'Field name cannot be empty!' : '' }}

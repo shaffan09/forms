@@ -73,7 +73,7 @@ function toggleDelete() {
         <slot name="description"></slot>
       </p>
       <div class="card-actions justify-between">
-        <Link class="btn btn-primary btn-sm gap-2">
+        <Link :href="`/forms/${id}/edit`" class="btn btn-primary btn-sm gap-2">
           <Pen/>
           Edit
         </Link>
