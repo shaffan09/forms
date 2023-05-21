@@ -69,9 +69,9 @@ function submit() {
     })
   })
 
-  if (form === null) formData.post('/forms/create')
+  if (form === null) formData.post('/my/forms/create')
 
-  if (form !== null) formData.post(`/forms/${form.id}/edit`)
+  if (form !== null) formData.post(`/my/forms/${form.id}/edit`)
 }
 </script>
 

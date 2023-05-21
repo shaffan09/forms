@@ -30,6 +30,6 @@ class SignupController extends Controller
 
         auth()->login($user);
 
-        return redirect('/');
+        return redirect()->intended();
     }
 }

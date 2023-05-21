@@ -25,5 +25,15 @@ interface Form {
   error: Boolean | undefined
 }
 
+interface FieldValue {
+  id: String
+  name: String
+  type: String
+  options: Option[] | undefined
+  value: String
+  required: Boolean
+  error: Boolean | undefined
+}
+
 // @ts-ignore
-export {Option, Field, Form}
+export {Option, Field, Form, FieldValue}

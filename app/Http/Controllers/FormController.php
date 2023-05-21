@@ -20,6 +20,14 @@ class FormController extends Controller
         ]);
     }
 
+    // show single form to send a response
+    public function show(Form $form): Response
+    {
+        return Inertia::render('Form/View', [
+            'form' => $form
+        ]);
+    }
+
     //show create form page
     public function create(): Response
     {
@@ -40,7 +48,7 @@ class FormController extends Controller
         $form = new Form($formData);
         $form->user()->associate(auth()->user())->save();
 
-        return redirect('/forms');
+        return redirect('/my/forms');
     }
 
     //show edit form screen
@@ -66,7 +74,7 @@ class FormController extends Controller
 
         $form->update($formData);
 
-        return redirect('/forms');
+        return redirect('/my/forms');
     }
 
     //delete the form from the database
@@ -74,6 +82,6 @@ class FormController extends Controller
     {
         $form->delete();
 
-        return redirect('/forms');
+        return redirect('/my/forms');
     }
 }

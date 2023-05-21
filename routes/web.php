@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ResponseController;
 use App\Models\Form;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 // Home page
 Route::get('/', function () {
-    return redirect('/forms');
+    return redirect('/my/forms');
 });
 
 //Auth routes
@@ -44,29 +45,35 @@ Route::post('/logout', [LoginController::class, 'destroy']);
 
 //Protected routes
 Route::middleware('auth')->group(function () {
-    Route::get('/forms', [FormController::class, 'index']);
+    Route::get('/my/forms', [FormController::class, 'index']);
 
     // show create form page
-    Route::get('/forms/create', [FormController::class, 'create']);
+    Route::get('/my/forms/create', [FormController::class, 'create']);
 
     // store form
-    Route::post('/forms/create', [FormController::class, 'store']);
+    Route::post('/my/forms/create', [FormController::class, 'store']);
 
     // show edit form page
     Route::get(
-        '/forms/{form}/edit',
+        '/my/forms/{form}/edit',
         [FormController::class, 'edit']
     )->can('update', 'form');
 
     // route to update form
     Route::post(
-        '/forms/{form}/edit',
+        '/my/forms/{form}/edit',
         [FormController::class, 'update']
     )->can('update', 'form');
 
     // route to delete the form
     Route::delete(
-        '/forms/{form}',
+        '/my/forms/{form}',
         [FormController::class, 'destroy'],
     )->can('delete', 'form');
 });
+
+// show single form for response
+Route::get('/forms/{form}', [FormController::class, 'show']);
+
+// route to store response
+Route::post('/forms/{form}/response', [ResponseController::class, 'store']);

@@ -16,13 +16,13 @@ import ArrowRightOnRectagle from "@/Shared/Icons/ArrowRightOnRectagle.vue";
           </label>
           <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <Link href="/forms">Forms</Link>
+              <Link href="/my/forms">Forms</Link>
             </li>
             <li>
               <Link>Dashboard</Link>
             </li>
             <li>
-              <Link href="/forms/create">Create Form</Link>
+              <Link href="/my/forms/create">Create Form</Link>
             </li>
           </ul>
         </div>
@@ -31,13 +31,13 @@ import ArrowRightOnRectagle from "@/Shared/Icons/ArrowRightOnRectagle.vue";
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
           <li>
-            <Link href="/forms">Forms</Link>
+            <Link href="/my/forms">Forms</Link>
           </li>
           <li>
             <Link>Dashboard</Link>
           </li>
           <li>
-            <Link href="/forms/create">Create Form</Link>
+            <Link href="/my/forms/create">Create Form</Link>
           </li>
         </ul>
       </div>

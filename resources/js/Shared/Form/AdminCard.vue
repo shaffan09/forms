@@ -73,13 +73,13 @@ function toggleDelete() {
         <slot name="description"></slot>
       </p>
       <div class="card-actions justify-between">
-        <Link :href="`/forms/${id}/edit`" class="btn btn-primary btn-sm gap-2">
+        <Link :href="`/my/forms/${id}/edit`" class="btn btn-primary btn-sm gap-2">
           <Pen/>
           Edit
         </Link>
 
         <div>
-          <Link class="btn btn-info btn-outline btn-sm btn-circle mr-2">
+          <Link :href="`/forms/${id}`" class="btn btn-info btn-outline btn-sm btn-circle mr-2">
             <ArrowTopRight/>
           </Link>
 
@@ -92,7 +92,7 @@ function toggleDelete() {
 
           <div class="btn-group" v-show="isDeleting">
             <Link
-              :href="`/forms/${id}`"
+              :href="`/my/forms/${id}`"
               method="DELETE"
               as="button"
               class="btn btn-sm btn-outline btn-error">
