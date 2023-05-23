@@ -70,6 +70,9 @@ Route::middleware('auth')->group(function () {
         '/my/forms/{form}',
         [FormController::class, 'destroy'],
     )->can('delete', 'form');
+
+    // show responses for the form
+    Route::get('/my/forms/{form}/response', [ResponseController::class, 'show']);
 });
 
 // show single form for response

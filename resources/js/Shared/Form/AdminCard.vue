@@ -62,7 +62,7 @@ function toggleDelete() {
   <div class="card w-auto h-60 bg-base-100 shadow-xl">
     <div class="card-body">
       <div class="flex justify-between items-center">
-        <Link>
+        <Link :href="`/my/forms/${id}/response`">
           <h2 class="card-title">
             <slot name="title"></slot>
           </h2>

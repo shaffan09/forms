@@ -35,5 +35,12 @@ interface FieldValue {
   error: Boolean | undefined
 }
 
+interface Response {
+  id: string
+  form_id: string
+  field_values: FieldValue[]
+  created_at: string
+}
+
 // @ts-ignore
-export {Option, Field, Form, FieldValue}
+export {Option, Field, Form, FieldValue, Response}
