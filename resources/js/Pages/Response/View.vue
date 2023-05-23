@@ -2,6 +2,7 @@
 import {Response} from "@/types";
 import {ref} from "vue";
 import Table from "@/Shared/Response/Table.vue";
+import Individual from "@/Shared/Response/Individual.vue";
 
 defineProps<{
   responses: Response[]
@@ -49,6 +50,7 @@ let tab = ref<string>('summary')
 
   <section v-if="responses.length" class="p-4 shadow-md rounded-b-box mt-7">
     <Table v-if="tab === 'table'" :responses="responses"/>
+    <Individual v-if="tab === 'individual'" :responses="responses" />
   </section>
 
   <section v-else class="p-4 shadow-md rounded-b-box mt-7 text-center">
