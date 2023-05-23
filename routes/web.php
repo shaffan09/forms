@@ -76,7 +76,13 @@ Route::middleware('auth')->group(function () {
 });
 
 // show single form for response
-Route::get('/forms/{form}', [FormController::class, 'show']);
+Route::get(
+    '/forms/{form}',
+    [FormController::class, 'show']
+)->can('submitResponse', 'form');
 
 // route to store response
-Route::post('/forms/{form}/response', [ResponseController::class, 'store']);
+Route::post(
+    '/forms/{form}/response',
+    [ResponseController::class, 'store']
+)->can('submitResponse', 'form');

@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Form;
 use App\Models\User;
+use DateTime;
 use Illuminate\Auth\Access\Response;
 
 class FormPolicy
@@ -62,5 +63,18 @@ class FormPolicy
     public function forceDelete(User $user, Form $form): bool
     {
         return $user->id === $form->user_id;
+    }
+
+    /**
+     * Determines if form can have responses base on is_active and exp_date
+     */
+    public function submitResponse(User $user, Form $form): Response
+    {
+        $now = new DateTime();
+        $exp = new DateTime($form->exp_date);
+
+        return $form->is_active && $exp >= $now
+            ? Response::allow()
+            : Response::denyAsNotFound();
     }
 }
