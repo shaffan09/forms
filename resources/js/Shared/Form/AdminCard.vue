@@ -6,6 +6,7 @@ import XMark from "@/Shared/Icons/XMark.vue";
 import Check from "@/Shared/Icons/Check.vue";
 import ArrowTopRight from "@/Shared/Icons/ArrowTopRight.vue";
 import Pen from "@/Shared/Icons/Pen.vue";
+import Clipboard from "../Icons/Clipboard.vue";
 
 const props = defineProps({
   id: {type: String, required: true},
@@ -56,6 +57,10 @@ function toggleDelete() {
     isDeleting.value = false
   }, 15000)
 }
+
+function copyURL() {
+  navigator.clipboard.writeText(`${location.hostname}/forms/${props.id}`)
+}
 </script>
 
 <template>
@@ -79,6 +84,10 @@ function toggleDelete() {
         </Link>
 
         <div>
+          <button @click="copyURL" class="btn btn-info btn-outline btn-sm btn-circle mr-2">
+            <Clipboard />
+          </button>
+
           <Link :href="`/forms/${id}`" class="btn btn-info btn-outline btn-sm btn-circle mr-2">
             <ArrowTopRight/>
           </Link>
